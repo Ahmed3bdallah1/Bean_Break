@@ -1,8 +1,9 @@
-import 'package:bath_room_app/core/controllers/location/location_controller.dart';
-import 'package:bath_room_app/core/validators/vaildation.dart';
-import 'package:bath_room_app/presantion/widgets/custom_button.dart';
-import 'package:bath_room_app/presantion/widgets/custoum_text_filed.dart';
-import 'package:bath_room_app/presantion/widgets/rating_widget.dart';
+
+import 'package:beak_break/core/controllers/location/location_controller.dart';
+import 'package:beak_break/core/validators/vaildation.dart';
+import 'package:beak_break/presantion/widgets/custom_button.dart';
+import 'package:beak_break/presantion/widgets/custoum_text_filed.dart';
+import 'package:beak_break/presantion/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';

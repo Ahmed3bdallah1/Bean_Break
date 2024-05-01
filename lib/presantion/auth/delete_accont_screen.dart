@@ -1,10 +1,11 @@
-import 'package:bath_room_app/core/controllers/auth/auth_controller.dart';
-import 'package:bath_room_app/core/network/app_constants.dart';
-import 'package:bath_room_app/core/network/local/cache_helper.dart';
-import 'package:bath_room_app/core/routing/router.dart';
+
+import 'package:beak_break/core/controllers/auth/auth_controller.dart';
+import 'package:beak_break/core/network/app_constants.dart';
+import 'package:beak_break/core/network/local/cache_helper.dart';
+import 'package:beak_break/core/routing/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:bath_room_app/di_container.dart' as di;
+import 'package:beak_break/di_container.dart' as di;
 import '../../core/colors/colours.dart';
 import '../widgets/custom_button.dart';
 

@@ -1,7 +1,8 @@
-import 'package:bath_room_app/core/colors/colours.dart';
-import 'package:bath_room_app/core/network/app_constants.dart';
-import 'package:bath_room_app/models/locations_model/location_model.dart';
-import 'package:bath_room_app/presantion/widgets/rating_widget.dart';
+
+import 'package:beak_break/core/colors/colours.dart';
+import 'package:beak_break/core/network/app_constants.dart';
+import 'package:beak_break/models/locations_model/location_model.dart';
+import 'package:beak_break/presantion/widgets/rating_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

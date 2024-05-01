@@ -1,5 +1,6 @@
-import 'package:bath_room_app/core/colors/colours.dart';
-import 'package:bath_room_app/core/routing/router.dart';
+
+import 'package:beak_break/core/colors/colours.dart';
+import 'package:beak_break/core/routing/router.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {

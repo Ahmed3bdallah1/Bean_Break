@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:bath_room_app/core/controllers/reviews/reviews_controller.dart';
-import 'package:bath_room_app/core/network/app_constants.dart';
-import 'package:bath_room_app/models/locations_model/location_model.dart';
-import 'package:bath_room_app/presantion/widgets/rating_widget.dart';
-import 'package:bath_room_app/presantion/widgets/snak_bar.dart';
+import 'package:beak_break/core/controllers/reviews/reviews_controller.dart';
+import 'package:beak_break/core/network/app_constants.dart';
+import 'package:beak_break/models/locations_model/location_model.dart';
+import 'package:beak_break/presantion/widgets/rating_widget.dart';
+import 'package:beak_break/presantion/widgets/snak_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/colors/colours.dart';

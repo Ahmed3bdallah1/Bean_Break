@@ -1,12 +1,14 @@
-import 'package:bath_room_app/core/controllers/auth/auth_controller.dart';
-import 'package:bath_room_app/core/controllers/home/home_controller.dart';
-import 'package:bath_room_app/core/controllers/location/location_controller.dart';
-import 'package:bath_room_app/core/controllers/reviews/reviews_controller.dart';
-import 'package:bath_room_app/core/network/local/cache_helper.dart';
-import 'package:bath_room_app/core/network/remote/api_service.dart';
+
 import 'package:connectivity/connectivity.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'core/controllers/auth/auth_controller.dart';
+import 'core/controllers/home/home_controller.dart';
+import 'core/controllers/location/location_controller.dart';
+import 'core/controllers/reviews/reviews_controller.dart';
+import 'core/network/local/cache_helper.dart';
+import 'core/network/remote/api_service.dart';
 
 final sl = GetIt.instance;
 

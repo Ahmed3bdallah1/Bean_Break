@@ -1,7 +1,7 @@
-import 'package:bath_room_app/core/colors/colours.dart';
-import 'package:bath_room_app/core/controllers/location/location_controller.dart';
-import 'package:bath_room_app/presantion/home/widgets/ad_mob_container.dart';
-import 'package:bath_room_app/presantion/home/widgets/coffie_container.dart';
+import 'package:beak_break/core/colors/colours.dart';
+import 'package:beak_break/core/controllers/location/location_controller.dart';
+import 'package:beak_break/presantion/home/widgets/ad_mob_container.dart';
+import 'package:beak_break/presantion/home/widgets/coffie_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/controllers/home/home_controller.dart';

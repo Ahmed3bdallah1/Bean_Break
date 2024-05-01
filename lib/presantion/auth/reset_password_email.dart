@@ -1,8 +1,7 @@
-import 'package:bath_room_app/core/routing/router.dart';
+import 'package:beak_break/core/routing/router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../core/colors/colours.dart';
 import '../../core/controllers/auth/auth_controller.dart';
 import '../../core/validators/vaildation.dart';

@@ -1,8 +1,7 @@
 import 'dart:async';
-import 'package:bath_room_app/core/controllers/location/location_controller.dart';
-import 'package:bath_room_app/core/network/app_constants.dart';
-import 'package:bath_room_app/presantion/maps/add_to_map_screen.dart';
-import 'package:bath_room_app/presantion/maps/widgets/location_bottom_sheet.dart';
+import 'package:beak_break/core/controllers/location/location_controller.dart';
+import 'package:beak_break/core/network/app_constants.dart';
+import 'package:beak_break/presantion/maps/widgets/location_bottom_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -10,6 +9,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../core/validators/bitmap_asset.dart';
 import '../../models/locations_model/location_model.dart';
+import 'add_to_map_screen.dart';
 
 class MapsScreen extends StatefulWidget {
   final List<LocationModel> locations;

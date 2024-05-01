@@ -1,7 +1,8 @@
-import 'package:bath_room_app/core/controllers/auth/auth_controller.dart';
-import 'package:bath_room_app/core/validators/vaildation.dart';
-import 'package:bath_room_app/presantion/home/widgets/navigation.dart';
-import 'package:bath_room_app/presantion/widgets/custom_button.dart';
+
+import 'package:beak_break/core/controllers/auth/auth_controller.dart';
+import 'package:beak_break/core/validators/vaildation.dart';
+import 'package:beak_break/presantion/home/widgets/navigation.dart';
+import 'package:beak_break/presantion/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

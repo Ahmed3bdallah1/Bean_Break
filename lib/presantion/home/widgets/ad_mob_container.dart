@@ -1,4 +1,4 @@
-import 'package:bath_room_app/core/controllers/location/location_controller.dart';
+import 'package:beak_break/core/controllers/location/location_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';

@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'package:bath_room_app/core/colors/colours.dart';
-import 'package:bath_room_app/core/validators/bitmap_asset.dart';
-import 'package:bath_room_app/models/locations_model/location_model.dart';
-import 'package:bath_room_app/presantion/maps/widgets/add_location_bottom_sheet.dart';
-import 'package:bath_room_app/presantion/maps/widgets/location_bottom_sheet.dart';
+import 'package:beak_break/core/colors/colours.dart';
+import 'package:beak_break/core/validators/bitmap_asset.dart';
+import 'package:beak_break/models/locations_model/location_model.dart';
+import 'package:beak_break/presantion/maps/widgets/add_location_bottom_sheet.dart';
+import 'package:beak_break/presantion/maps/widgets/location_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';

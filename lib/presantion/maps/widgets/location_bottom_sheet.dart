@@ -1,10 +1,9 @@
-import 'package:bath_room_app/core/controllers/location/location_controller.dart';
-import 'package:bath_room_app/core/controllers/reviews/reviews_controller.dart';
-import 'package:bath_room_app/core/routing/router.dart';
-import 'package:bath_room_app/models/review_models/review_model.dart';
-import 'package:bath_room_app/presantion/maps/widgets/add_review_sheet.dart';
-import 'package:bath_room_app/presantion/profile/widgets/review_widget.dart';
-import 'package:bath_room_app/presantion/widgets/custom_show_dialog.dart';
+import 'package:beak_break/core/controllers/location/location_controller.dart';
+import 'package:beak_break/core/controllers/reviews/reviews_controller.dart';
+import 'package:beak_break/core/routing/router.dart';
+import 'package:beak_break/models/review_models/review_model.dart';
+import 'package:beak_break/presantion/profile/widgets/review_widget.dart';
+import 'package:beak_break/presantion/widgets/custom_show_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +11,7 @@ import '../../../core/colors/colours.dart';
 import '../../../core/network/app_constants.dart';
 import '../../../models/locations_model/location_model.dart';
 import '../../home/widgets/ad_mob_container.dart';
+import 'add_review_sheet.dart';
 import 'location_info_container.dart';
 
 void showLocationDetails(
@@ -151,10 +151,12 @@ void showLocationDetails(
                       onTap: () async {
                         if (AppConstants.token != '') {
                           print("a7a1");
-                          final res=await showAddReviewDetails(context, location);
+                          final res =
+                              await showAddReviewDetails(context, location);
                           print("a7a2");
 
-                          Provider.of<ReviewsController>(context,listen: false).reset();
+                          Provider.of<ReviewsController>(context, listen: false)
+                              .reset();
                         } else {
                           showCustomDialog(
                             context,
