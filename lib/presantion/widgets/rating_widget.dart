@@ -1,6 +1,6 @@
 import 'package:animated_rating_stars/animated_rating_stars.dart';
-import 'package:bath_room_app/core/colors/colours.dart';
-import 'package:bath_room_app/core/controllers/reviews/reviews_controller.dart';
+import 'package:beak_break/core/colors/colours.dart';
+import 'package:beak_break/core/controllers/reviews/reviews_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';

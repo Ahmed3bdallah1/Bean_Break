@@ -1,6 +1,6 @@
-import 'package:bath_room_app/core/controllers/reviews/reviews_controller.dart';
-import 'package:bath_room_app/models/review_models/review_model.dart';
-import 'package:bath_room_app/presantion/profile/widgets/review_widget.dart';
+import 'package:beak_break/core/controllers/reviews/reviews_controller.dart';
+import 'package:beak_break/models/review_models/review_model.dart';
+import 'package:beak_break/presantion/profile/widgets/review_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

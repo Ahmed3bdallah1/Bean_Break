@@ -1,4 +1,4 @@
-import 'package:bath_room_app/core/colors/colours.dart';
+import 'package:beak_break/core/colors/colours.dart';
 import 'package:flutter/material.dart';
 
 showSnackBar(BuildContext context, {required String text, Color? color,Duration? duration}) {

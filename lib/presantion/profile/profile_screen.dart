@@ -1,16 +1,16 @@
-import 'package:bath_room_app/core/colors/colours.dart';
-import 'package:bath_room_app/core/controllers/auth/auth_controller.dart';
-import 'package:bath_room_app/core/network/app_constants.dart';
-import 'package:bath_room_app/core/network/local/cache_helper.dart';
-import 'package:bath_room_app/core/routing/router.dart';
-import 'package:bath_room_app/presantion/widgets/custom_show_dialog.dart';
-import 'package:bath_room_app/presantion/widgets/custom_switcher.dart';
-import 'package:bath_room_app/presantion/widgets/snak_bar.dart';
+import 'package:beak_break/core/colors/colours.dart';
+import 'package:beak_break/core/controllers/auth/auth_controller.dart';
+import 'package:beak_break/core/network/local/cache_helper.dart';
+import 'package:beak_break/core/routing/router.dart';
+import 'package:beak_break/presantion/widgets/custom_show_dialog.dart';
+import 'package:beak_break/presantion/widgets/custom_switcher.dart';
+import 'package:beak_break/presantion/widgets/snak_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../core/network/app_constants.dart';
 import '../../core/validators/vaildation.dart';
 import '../widgets/custoum_text_filed.dart';
-import 'package:bath_room_app/di_container.dart' as di;
+import 'package:beak_break/di_container.dart' as di;
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

@@ -1,11 +1,10 @@
-import 'package:bath_room_app/presantion/auth/delete_accont_screen.dart';
-import 'package:bath_room_app/presantion/auth/reset_password_email.dart';
-import 'package:bath_room_app/presantion/auth/reset_password_screen.dart';
-import 'package:bath_room_app/presantion/auth/sginup_screen.dart';
-import 'package:bath_room_app/presantion/home/widgets/navigation.dart';
-import 'package:bath_room_app/presantion/profile/reviews_screen.dart';
+import 'package:beak_break/presantion/auth/delete_accont_screen.dart';
+import 'package:beak_break/presantion/auth/reset_password_email.dart';
+import 'package:beak_break/presantion/auth/reset_password_screen.dart';
+import 'package:beak_break/presantion/auth/sginup_screen.dart';
+import 'package:beak_break/presantion/home/widgets/navigation.dart';
+import 'package:beak_break/presantion/profile/reviews_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../../presantion/auth/login_screen.dart';
 
 class Routes {
