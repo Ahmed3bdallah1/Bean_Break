@@ -1,8 +1,7 @@
-import 'package:bath_room_app/models/locations_model/location_model.dart';
-import 'package:bath_room_app/presantion/widgets/snak_bar.dart';
+import 'package:beak_break/models/locations_model/location_model.dart';
+import 'package:beak_break/presantion/widgets/snak_bar.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-
 import '../../network/app_constants.dart';
 import '../../network/remote/api_service.dart';
 

@@ -1,9 +1,8 @@
-import 'package:bath_room_app/core/network/remote/api_service.dart';
-import 'package:bath_room_app/presantion/home/home_screen.dart';
-import 'package:bath_room_app/presantion/maps/maps_screen.dart';
-import 'package:bath_room_app/presantion/profile/profile_screen.dart';
+import 'package:beak_break/core/network/remote/api_service.dart';
+import 'package:beak_break/presantion/home/home_screen.dart';
+import 'package:beak_break/presantion/maps/maps_screen.dart';
+import 'package:beak_break/presantion/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../../../models/locations_model/location_model.dart';
 
 class HomeController extends ChangeNotifier {

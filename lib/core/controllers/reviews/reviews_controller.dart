@@ -1,5 +1,5 @@
-import 'package:bath_room_app/core/network/remote/api_service.dart';
-import 'package:bath_room_app/models/review_models/review_model.dart';
+import 'package:beak_break/core/network/remote/api_service.dart';
+import 'package:beak_break/models/review_models/review_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
