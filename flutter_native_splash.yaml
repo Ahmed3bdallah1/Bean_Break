@@ -1,22 +1,10 @@
 flutter_native_splash:
-  # This package generates native code to customize Flutter's default white native splash screen
-  # with background color and splash image.
-  # Customize the parameters below, and run the following command in the terminal:
-  # dart run flutter_native_splash:create
-  # To restore Flutter's default white splash screen, run the following command in the terminal:
-  # dart run flutter_native_splash:remove
-
-  # IMPORTANT NOTE: These parameter do not affect the configuration of Android 12 and later, which
-  # handle splash screens differently that prior versions of Android.  Android 12 and later must be
-  # configured specifically in the android_12 section below.
-
-  # color or background_image is the only required parameter.  Use color to set the background
-  # of your splash screen to a solid color.  Use background_image to set the background of your
-  # splash screen to a png image.  This is useful for gradients. The image will be stretch to the
-  # size of the app. Only one parameter can be used, color and background_image cannot both be set.
-  color: "#42a5f5"
-  #background_image: "assets/background.png"
-
+  color: "#C2ae8e"
+  image: assets/beens.png
+  android: true
+  ios: true
+  ios_content_mode: center
+  android_gravity: fill
   # Optional parameters are listed below.  To enable a parameter, uncomment the line by removing
   # the leading # character.
 
@@ -57,10 +45,10 @@ flutter_native_splash:
   #image: assets/android12splash.png
 
   # Splash screen background color.
-  #color: "#42a5f5"
+#    color: "#C2ae8e"
 
   # App icon background color.
-  #icon_background_color: "#111111"
+#  icon_background_color: "#C2ae8e"
 
   # The branding property allows you to specify an image used as branding in the splash screen.
   #branding: assets/dart.png
@@ -69,8 +57,8 @@ flutter_native_splash:
   # apply when the device is in dark mode. If they are not specified, the app will use the
   # parameters from above.
   #image_dark: assets/android12splash-invert.png
-  #color_dark: "#042a49"
-  #icon_background_color_dark: "#eeeeee"
+  color_dark: "#C2ae8e"
+  icon_background_color_dark: "#C2ae8e"
 
   # The android, ios and web parameters can be used to disable generating a splash screen on a given
   # platform.
@@ -80,12 +68,12 @@ flutter_native_splash:
 
   # Platform specific images can be specified with the following parameters, which will override
   # the respective parameter.  You may specify all, selected, or none of these parameters:
-  #color_android: "#42a5f5"
-  #color_dark_android: "#042a49"
-  #color_ios: "#42a5f5"
-  #color_dark_ios: "#042a49"
-  #color_web: "#42a5f5"
-  #color_dark_web: "#042a49"
+  #color_android: "#C2ae8e"
+  #color_dark_android: "#C2ae8e"
+  #color_ios: "#C2ae8e"
+  #color_dark_ios: "#C2ae8e"
+  #color_web: "#C2ae8e"
+  #color_dark_web: "#C2ae8e"
   #image_android: assets/splash-android.png
   #image_dark_android: assets/splash-invert-android.png
   #image_ios: assets/splash-ios.png
