@@ -148,24 +148,24 @@ class _SplashViewState extends State<SplashView> {
     return !move
         ? Scaffold(
             backgroundColor: ConstantsColors.background,
-            body: Center(
-              child: Column(
-                children: [
-                  Image.asset(
-                    'assets/beens.png',
-                    height: 100,
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/beens.png',
+                  height: 100,
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  "BeanBreak",
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: ConstantsColors.navigationColor,
+                    fontWeight: FontWeight.bold,
                   ),
-                  const SizedBox(height: 10),
-                  Text(
-                    "BeanBreak",
-                    style: TextStyle(
-                      fontSize: 40,
-                      color: ConstantsColors.navigationColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           )
         : AnimatedSplashScreen(

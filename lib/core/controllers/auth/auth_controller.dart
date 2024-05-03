@@ -101,10 +101,15 @@ class AuthController extends ChangeNotifier {
           showSnackBar(context, text: e.response.toString(), color: Colors.red);
         }
         showSnackBar(context,
-            text: e.response!.data.toString().isEmpty ? "user not found":"something went wrong", color: Colors.red);
+            text: e.response!.data.toString().isEmpty
+                ? "user not found"
+                : "something went wrong",
+            color: Colors.red);
         return null;
       } else {
-        showSnackBar(context, text: "user not found or password may not correct", color: Colors.red);
+        showSnackBar(context,
+            text: "user not found or password may not correct",
+            color: Colors.red);
         return null;
       }
     }
@@ -154,7 +159,8 @@ class AuthController extends ChangeNotifier {
     } catch (e) {
       if (e is DioException) {
         if (e.response!.statusCode == 500) {
-          showSnackBar(context, text: "something went wrong", color: Colors.red);
+          showSnackBar(context,
+              text: "something went wrong", color: Colors.red);
         }
         showSnackBar(context,
             text: e.message ?? "something went wrong", color: Colors.red);
@@ -170,20 +176,40 @@ class AuthController extends ChangeNotifier {
     required String displayName,
     required String email,
     required String password,
-  }) {
-    apiService.post(url: AppConstants.ADD_EDIT_ACCOUNT, requestBody: {
-      "display_name": displayName,
-      "email": email,
-      "password": password,
-    }).then((value) {
-      print(value);
+  }) async {
+    try {
+      final res = await apiService
+          .post(url: AppConstants.ADD_EDIT_ACCOUNT, requestBody: {
+        "email": email,
+        "display_name": displayName,
+        "password": password,
+      });
+      showSnackBar(
+        context,
+        color: Colors.green,
+        text:
+            "Account created successfully, please check your email to verify your account",
+        duration: const Duration(seconds: 10),
+      );
       return true;
-    }).catchError((e) {
-      print("----- user create error -----");
-      print(e.toString());
-      throw e.toString();
-    });
-    throw "something went wrong";
+    } catch (e) {
+      if (e is DioException) {
+        if (e.response!.statusCode == 500) {
+          showSnackBar(context,
+              text: ServerFailure.getMessage(e.response!.statusCode) ?? "",
+              color: Colors.red);
+        }
+        print(e);
+        showSnackBar(context,
+            text: ServerFailure.getMessage(e.response!.statusCode) ??
+                "something went wrong",
+            color: Colors.red,
+            duration: const Duration(seconds: 10));
+      } else {
+        showSnackBar(context, text: e.toString(), color: Colors.red);
+      }
+      return false;
+    }
   }
 
   Future<bool> sendOtpCode(BuildContext context, {String? email}) async {

@@ -1,6 +1,6 @@
 class AppConstants {
   // api constants
-  static const String baseUrl = "http://172.105.152.70:8082";
+  static const String baseUrl = "https://bathroomapi.quicklaunch.co.za";
   static const String GET_USERS = "/account";
   static const String ADD_EDIT_ACCOUNT = "/account";
   static const String DELETE_ACCOUNT = "/account/delete/";

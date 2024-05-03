@@ -3,7 +3,10 @@ flutter_native_splash:
   image: assets/beens.png
   android: true
   ios: true
+  web: true
   ios_content_mode: center
+  color_dark: "#C2ae8e"
+  icon_background_color_dark: "#C2ae8e"
   android_gravity: fill
   # Optional parameters are listed below.  To enable a parameter, uncomment the line by removing
   # the leading # character.
@@ -57,14 +60,12 @@ flutter_native_splash:
   # apply when the device is in dark mode. If they are not specified, the app will use the
   # parameters from above.
   #image_dark: assets/android12splash-invert.png
-  color_dark: "#C2ae8e"
-  icon_background_color_dark: "#C2ae8e"
+
 
   # The android, ios and web parameters can be used to disable generating a splash screen on a given
   # platform.
   #android: false
   #ios: false
-  #web: false
 
   # Platform specific images can be specified with the following parameters, which will override
   # the respective parameter.  You may specify all, selected, or none of these parameters:
