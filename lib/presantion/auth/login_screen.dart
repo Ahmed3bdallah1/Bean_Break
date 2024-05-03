@@ -63,6 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: emailController,
                   validator: validateEmail,
                   prefixIcon: Icons.email_outlined,
+                  hintText: "Email",
                 ),
                 const SizedBox(height: 30),
                 Consumer<AuthController>(
@@ -75,6 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             validator: validatePassword,
                             obscure: obsecure,
                             prefixIcon: Icons.lock_outline,
+                            hintText: "Password",
                             suffixIcon: obsecure == false
                                 ? CupertinoIcons.eye
                                 : CupertinoIcons.eye_slash,

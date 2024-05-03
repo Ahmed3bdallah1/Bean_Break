@@ -127,14 +127,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               controller: nameController,
                               prefixIcon: Icons.person,
                               readOnly: true,
-                              hintText: AppConstants.name,
+                              hintText: AppConstants.name == ""
+                                  ? "Username"
+                                  : AppConstants.name,
                             ),
                             const SizedBox(height: 20),
                             CustomTextField(
                               validator: validateEmail,
                               controller: emailController,
                               prefixIcon: Icons.email,
-                              hintText: AppConstants.email,
+                              hintText: AppConstants.email == ""
+                                  ? "Email"
+                                  : AppConstants.email,
                               readOnly: true,
                             ),
                             const SizedBox(height: 10),
