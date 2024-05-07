@@ -3,12 +3,15 @@ import 'package:beak_break/presantion/home/home_screen.dart';
 import 'package:beak_break/presantion/maps/maps_screen.dart';
 import 'package:beak_break/presantion/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../models/locations_model/location_model.dart';
 
 class HomeController extends ChangeNotifier {
   final ApiService apiService;
 
   HomeController({required this.apiService});
+
+  static HomeController get(context)=> Provider.of(context);
 
   int currentIndex = 0;
 
