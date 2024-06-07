@@ -1,4 +1,4 @@
-
+import 'package:beak_break/core/network/data/auth_data_source/auth_data_source.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,10 +22,17 @@ Future<void> init() async {
   sl.registerLazySingleton(() => ApiService());
   sl.registerLazySingleton(() => CacheHelper(sharedPreferences: sl()));
 
+  // register data_source
+  sl.registerLazySingleton<AuthDataSource>(() => AuthDataSourceImp(
+        apiService: sl(),
+        cacheHelper: sl(),
+        sharedPreferences: sl(),
+      ));
+
   // register controllers of the app
   sl.registerFactory(() => HomeController(apiService: sl()));
   sl.registerFactory(() => LocationController(apiService: sl()));
   sl.registerFactory(() => ReviewsController(apiService: sl()));
-  sl.registerFactory(() => AuthController(
-      apiService: sl(), sharedPreferences: sl(), cacheHelper: sl()));
+  sl.registerFactory(
+      () => AuthController(authDataSource: sl<AuthDataSource>()));
 }
