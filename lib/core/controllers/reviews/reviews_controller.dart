@@ -1,3 +1,4 @@
+import 'package:beak_break/core/network/data/reviews/reviews_data_source.dart';
 import 'package:beak_break/core/network/remote/api_service.dart';
 import 'package:beak_break/models/review_models/review_model.dart';
 import 'package:dio/dio.dart';
@@ -24,9 +25,13 @@ class BoolRatingModel {
 }
 
 class ReviewsController extends ChangeNotifier {
+  final ReviewsDataSource reviewsDataSource;
   final ApiService apiService;
 
-  ReviewsController({required this.apiService});
+  ReviewsController({
+    required this.reviewsDataSource,
+    required this.apiService,
+  });
 
   List<ReviewModel> _reviewsList = [];
   bool isLoading = false;
@@ -62,7 +67,8 @@ class ReviewsController extends ChangeNotifier {
     BoolRatingModel(key: 'alternate_options', uiString: 'Alternate options'),
     BoolRatingModel(key: 'sit_down', uiString: 'Sit down'),
     BoolRatingModel(key: 'key_required', uiString: 'Key required'),
-    BoolRatingModel(key: 'wheelchair_friendly', uiString: 'Wheelchair friendly'),
+    BoolRatingModel(
+        key: 'wheelchair_friendly', uiString: 'Wheelchair friendly'),
     BoolRatingModel(key: 'is_free', uiString: 'Is free'),
   ];
 
@@ -89,7 +95,8 @@ class ReviewsController extends ChangeNotifier {
       BoolRatingModel(key: 'alternate_options', uiString: 'Alternate options'),
       BoolRatingModel(key: 'sit_down', uiString: 'Sit down'),
       BoolRatingModel(key: 'key_required', uiString: 'Key required'),
-      BoolRatingModel(key: 'wheelchair_friendly', uiString: 'Wheelchair friendly'),
+      BoolRatingModel(
+          key: 'wheelchair_friendly', uiString: 'Wheelchair friendly'),
       BoolRatingModel(key: 'is_free', uiString: 'Is free'),
     ];
     notifyListeners();
@@ -131,57 +138,17 @@ class ReviewsController extends ChangeNotifier {
 
   Future<List<ReviewModel>> getLocationReviews(BuildContext context,
       {required String locationId}) async {
-    try {
-      final res = await apiService.get(
-        url: "${AppConstants.GET_LOCATION_REVIEWS}/$locationId",
-      );
-      List<dynamic> data = res;
-      locationReviewsNotifier.value = data.map((e) {
-        return ReviewModel.fromJson(e);
-      }).toList();
-      return locationReviewsNotifier.value;
-    } catch (e) {
-      if (e is DioException) {
-        if (e.response!.statusCode == 500) {
-          showSnackBar(context, text: e.response.toString(), color: Colors.red);
-        }
-        showSnackBar(context, text: e.message!, color: Colors.red);
-        return [];
-      } else {
-        showSnackBar(context, text: e.toString(), color: Colors.red);
-        return [];
-      }
-    }
+    final list = await reviewsDataSource.getLocationReviews(context,
+        locationId: locationId);
+
+    locationReviewsNotifier.value = list;
+    return locationReviewsNotifier.value;
   }
 
   Future<bool> addReview(BuildContext context,
       {required Map<String, dynamic> map}) async {
-    try {
-      await apiService.post(
-          url: AppConstants.ADD_REVIEW,
-          requestBody: map,
-          additionalHeaders: {"api_token": AppConstants.token});
-      await getMyReviews(context);
-      return true;
-    } catch (e) {
-      if (e is DioException) {
-        if (e.response!.statusCode == 500) {
-          showSnackBar(context, text: e.response.toString(), color: Colors.red);
-        }
-        showSnackBar(
-          context,
-          text: ServerFailure.getMessage(e.response!.statusCode) ??
-              "something went wrong, please try again later",
-          color: Colors.red,
-        );
-        return false;
-      } else {
-        showSnackBar(context,
-            text: "something went wrong, please try again later",
-            color: Colors.red);
-        return false;
-      }
-    }
+    final result = await reviewsDataSource.addReview(context, map: map);
+    return result;
   }
 
   Future<bool> deleteReview(BuildContext context,
@@ -191,55 +158,52 @@ class ReviewsController extends ChangeNotifier {
           url: "${AppConstants.DELETE_REVIEW}/$locationId");
       print('Delete API response: $response');
 
-      var currentReviews = List<ReviewModel>.from(myReviewsNotifier.value);
-      currentReviews.removeWhere((review) => review.id == locationId);
-      myReviewsNotifier.value = currentReviews;
       if (response.statusCode == 200) {
+        updateReviewsAfterDeletion(locationId);
         showSnackBar(context,
             text: "Review has been deleted", color: Colors.green);
-      }
-      print('New notifier length: ${myReviewsNotifier.value.length}');
-
-      return true;
-    } catch (e) {
-      print("===============error=============");
-      print("=========== ${e.toString()}");
-      if (e is DioException) {
-        if (e.response!.statusCode == 500) {
-          showSnackBar(context, text: e.response.toString(), color: Colors.red);
-        }
-        showSnackBar(
-          context,
-          text: ServerFailure.getMessage(e.response!.statusCode) ??
-              "something went wrong, please try again later",
-          color: Colors.red,
-        );
-        return false;
+        print('New notifier length: ${myReviewsNotifier.value.length}');
+        return true;
       } else {
-        showSnackBar(context,
-            text: "something went wrong, please try again later",
-            color: Colors.red);
-        return false;
+        return handleErrorResponse(context, response);
       }
+    } catch (e) {
+      return handleException(context, e);
     }
   }
 
-  Future<List<ReviewModel>?> getMyReviews(BuildContext context) async {
-    print("object");
-    try {
-      final res = await apiService.get(
-          url: "${AppConstants.GET_MY_REVIEWS}${AppConstants.userId}");
-      List<dynamic> data = res;
-      _reviewsList = data.map((e) {
-        return ReviewModel.fromJson(e);
-      }).toList();
-      myReviewsNotifier.value = _reviewsList;
-      print("==========>${myReviewsNotifier.value.length}");
-      return myReviewsNotifier.value;
-    } catch (e) {
-      print("=============error===========");
-      print(e.toString());
-      return [];
+  void updateReviewsAfterDeletion(String locationId) {
+    var currentReviews = List<ReviewModel>.from(myReviewsNotifier.value);
+    currentReviews.removeWhere((review) => review.id == locationId);
+    myReviewsNotifier.value = currentReviews;
+  }
+
+  bool handleErrorResponse(BuildContext context, dynamic response) {
+    showSnackBar(context,
+        text: "Failed to delete review: ${response.statusCode}",
+        color: Colors.red);
+    return false;
+  }
+
+  bool handleException(BuildContext context, Object e) {
+    if (e is DioException && e.response != null) {
+      showSnackBar(context,
+          text: ServerFailure.getMessage(e.response!.statusCode) ??
+              "Unknown server error",
+          color: Colors.red);
+    } else {
+      showSnackBar(context,
+          text: "An error occurred: ${e.toString()}", color: Colors.red);
     }
+    return false;
+  }
+
+  Future<List<ReviewModel>> getMyReviews(BuildContext context) async {
+    print("object");
+    final list = await reviewsDataSource.getMyReviews(context);
+    _reviewsList = list ?? [];
+    myReviewsNotifier.value = _reviewsList;
+    print("==========>${myReviewsNotifier.value.length}");
+    return myReviewsNotifier.value;
   }
 }
