@@ -1,5 +1,4 @@
 import 'package:beak_break/core/colors/colours.dart';
-import 'package:beak_break/core/network/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/controllers/home/home_controller.dart';
